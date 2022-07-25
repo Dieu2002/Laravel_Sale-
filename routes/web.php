@@ -50,7 +50,14 @@ Route::get('/return-vnpay', function () {
     return view('vnpay.return-vnpay');
 });
 // Route::post('/vnpay',[PageController::class,'postCheckout']);	
+// ----------------- TRANG ADMIN ---------------
+Route::get('/formAdd', [PageController::class , 'getAdminpage'])->name('admin');
+Route::post('/formAdd', [PageController::class , 'postAdminAdd'])->name('add-product');
+Route::get('/showadmin',[PageController::class, 'getIndexAdmin']);
 
+Route::get('/admin-edit-form/{id}',[PageController::class,'getAdminEdit']);
+Route::post('/admin-edit',[PageController::class,'postAdminEdit']);
+Route::post('/admin-delete/{id}',[PageController::class,'postAdminDelete']);
 //------------------------- Wishlist ---------------------------------//
 Route::prefix('wishlist')->group(function () {
     Route::get('/add/{id}', [WishlistController::class, 'AddWishlist']);
