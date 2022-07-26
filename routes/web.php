@@ -36,7 +36,7 @@ Route::get('del-cart/{id}', [PageController::class, 'getDelItemCart'])->name('xo
 // ----------------- CHECKOUT ---------------
 Route::get('check-out', [PageController::class, 'getCheckout'])->name('dathang');
 Route::post('check-out', [PageController::class, 'postCheckout'])->name('dathang');
-
+// ----------------------- TRANG ADMIN --------------------
 Route::get('/admin', [PageController::class, 'getIndexAdmin']);
 Route::get('/admin-add-form', [PageController::class, 'getAdminAdd'])->name('add-product');
 Route::post('/admin-add-form', [PageController::class, 'postAdminAdd']);
@@ -44,20 +44,16 @@ Route::get('/admin-edit-form/{id}', [PageController::class, 'getAdminEdit']);
 Route::post('/admin-edit', [PageController::class, 'postAdminEdit']);
 Route::post('/admin-delete/{id}', [PageController::class, 'postAdminDelete']);
 
+Route::get('/showadmin',[PageController::class, 'getIndexAdmin']);
+
 Route::get('/admin-export', [PageController::class, 'exportAdminProduct'])->name('export');
 
 Route::get('/return-vnpay', function () {
     return view('vnpay.return-vnpay');
 });
 // Route::post('/vnpay',[PageController::class,'postCheckout']);	
-// ----------------- TRANG ADMIN ---------------
-Route::get('/formAdd', [PageController::class , 'getAdminpage'])->name('admin');
-Route::post('/formAdd', [PageController::class , 'postAdminAdd'])->name('add-product');
-Route::get('/showadmin',[PageController::class, 'getIndexAdmin']);
 
-Route::get('/admin-edit-form/{id}',[PageController::class,'getAdminEdit']);
-Route::post('/admin-edit',[PageController::class,'postAdminEdit']);
-Route::post('/admin-delete/{id}',[PageController::class,'postAdminDelete']);
+
 //------------------------- Wishlist ---------------------------------//
 Route::prefix('wishlist')->group(function () {
     Route::get('/add/{id}', [WishlistController::class, 'AddWishlist']);
@@ -84,3 +80,6 @@ Route::get('/register', function () {
 });
 
 Route::post('/register', [UserController::class, 'Register']);
+// --------------------- PDF -------------------------
+
+// Route::get('create-pdf-file', [UserController::class, 'exportAdminProduct']);

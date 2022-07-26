@@ -217,7 +217,7 @@ class PageController extends Controller
         }
         // ----------- SEND EMAIL -----------
         $message = [
-            'type' => 'Email thông báo đặt hàng thành công',
+            'type' => 'Thanh toán đơn hàng ',
             'thanks' => 'Cảm ơn ' . $req->name . ' đã đặt hàng.',
             'cart' => $cart,
             'content' => 'Đơn hàng sẽ tới tay bạn sớm nhất có thể.',
